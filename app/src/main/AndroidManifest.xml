@@ -10,7 +10,9 @@
     <application
         android:allowBackup="true"
         android:fullBackupContent="true"
+        android:icon="@mipmap/ic_launcher"
         android:label="NASA EPIC Daily"
+        android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         tools:ignore="GoogleAppIndexingWarning,MissingApplicationIcon">
 

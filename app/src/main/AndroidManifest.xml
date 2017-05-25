@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.biryanistudio.nasaepicdailyformuzei">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <application
+        android:allowBackup="true"
+        android:fullBackupContent="true"
+        android:label="NASA EPIC Daily"
+        android:supportsRtl="true"
+        tools:ignore="GoogleAppIndexingWarning,MissingApplicationIcon">
+
+        <service
+            android:name=".NasaEpicDailySource"
+            android:icon="@drawable/ic_source"
+            android:label="NASA EPIC Daily"
+            tools:ignore="ExportedService">
+
+            <intent-filter>
+                <action android:name="com.google.android.apps.muzei.api.MuzeiArtSource" />
+            </intent-filter>
+
+            <meta-data
+                android:name="color"
+                android:value="#093da0" />
+
+            <meta-data
+                android:name="settingsActivity"
+                android:value=".SettingsActivity" />
+        </service>
+
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="true"
+            android:label="NASA EPIC Daily Settings"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+    </application>
+
+</manifest>

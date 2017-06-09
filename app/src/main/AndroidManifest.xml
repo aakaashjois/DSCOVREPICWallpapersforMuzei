@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.biryanistudio.dscovrepicformuzei">
+    package="com.biryanistudio.nasaepicdailyformuzei">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -11,13 +11,13 @@
         android:allowBackup="true"
         android:fullBackupContent="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="DSCOVR EPIC Wallpapers"
+        android:label="NASA EPIC Daily"
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         tools:ignore="GoogleAppIndexingWarning,MissingApplicationIcon">
 
         <service
-            android:name=".RemoteWallpaperSource"
+            android:name="com.biryanistudio.nasaepicdailyformuzei.RemoteWallpaperSource"
             android:icon="@drawable/ic_source"
             tools:ignore="ExportedService">
 
@@ -35,7 +35,7 @@
         </service>
 
         <activity
-            android:name="com.biryanistudio.dscovrepicformuzei.SettingsActivity"
+            android:name="com.biryanistudio.nasaepicdailyformuzei.SettingsActivity"
             android:exported="true"
             android:label="Settings"
             android:theme="@style/Theme.AppCompat.NoActionBar" />

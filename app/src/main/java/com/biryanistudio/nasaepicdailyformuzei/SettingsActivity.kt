@@ -1,4 +1,4 @@
-package com.biryanistudio.dscovrepicformuzei
+package com.biryanistudio.nasaepicdailyformuzei
 
 import android.content.Context
 import android.graphics.Typeface
@@ -11,7 +11,7 @@ import org.jetbrains.anko.*
 class SettingsActivity : AppCompatActivity() {
 
     companion object {
-        val PREFERENCES_KEY = "com.biryanistudio.dscovrepicformuzei.preferences"
+        val PREFERENCES_KEY = "com.biryanistudio.nasaepicdailyformuzei.preferences"
         val REFRESH_TIME = "refreshHour"
     }
 

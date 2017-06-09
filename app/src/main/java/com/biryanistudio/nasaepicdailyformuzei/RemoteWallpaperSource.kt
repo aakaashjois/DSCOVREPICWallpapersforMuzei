@@ -1,4 +1,4 @@
-package com.biryanistudio.dscovrepicformuzei
+package com.biryanistudio.nasaepicdailyformuzei
 
 import android.content.Context
 import android.content.Intent
@@ -38,7 +38,7 @@ class RemoteWallpaperSource : RemoteMuzeiArtSource("RemoteWallpaperSource") {
                         val image = imageData.getString("image")
                         val imageUrl = "https://epic.gsfc.nasa.gov/archive/natural/$date/png/$image.png"
                         publishArtwork(Artwork.Builder()
-                                .title("DSCOVR EPIC Wallpaper")
+                                .title("NASA EPIC Daily")
                                 .byline("Captured at " + metaData)
                                 .imageUri(Uri.parse(imageUrl))
                                 .viewIntent(Intent(Intent.ACTION_VIEW,

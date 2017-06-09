@@ -2,10 +2,10 @@ package com.biryanistudio.nasaepicdailyformuzei
 
 import android.content.Context
 import android.graphics.Typeface
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.view.Gravity
-import android.widget.*
+import android.widget.SeekBar
 import org.jetbrains.anko.*
 
 class SettingsActivity : AppCompatActivity() {
@@ -49,6 +49,7 @@ class SettingsActivity : AppCompatActivity() {
                     })
                 }.lparams(width = matchParent, height = wrapContent)
                 textView {
+                    padding = dip(16)
                     text = "The image might not refresh if a newer image has not been made available by the EPIC Team"
                     setTypeface(null, Typeface.ITALIC)
                     textSize = 14f

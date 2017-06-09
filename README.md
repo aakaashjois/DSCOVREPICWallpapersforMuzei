@@ -13,3 +13,7 @@ Display a staggering image of Planet Earth captured by NASA's Earth Polychromati
 This app is an extension for Muzei Live Wallpaper.
 
 This app is non-commercial, open-source and free to use.
+
+The images provided by this app are published by the NASA EPIC Team.
+
+This app was built using [Kotlin](https://github.com/JetBrains/kotlin).

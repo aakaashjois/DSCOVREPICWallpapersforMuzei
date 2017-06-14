@@ -20,9 +20,9 @@ class RemoteWallpaperSource : RemoteMuzeiArtSource("RemoteWallpaperSource") {
     }
 
     override fun onTryUpdate(reason: Int) {
-        val sharedPreferences = getSharedPreferences(
-                SettingsActivity.PREFERENCES_KEY, Context.MODE_PRIVATE)
-        val imageMetadataUrl = "https://epic.gsfc.nasa.gov/api/natural"
+        val sharedPreferences = getSharedPreferences(SettingsActivity.PREFERENCES_KEY, Context.MODE_PRIVATE)
+        val imageType = if (sharedPreferences.getBoolean(SettingsActivity.IMAGE_TYPE, SettingsActivity.DEFAULT_IMAGE_TYPE)) "enhanced" else "natural"
+        val imageMetadataUrl = "https://epic.gsfc.nasa.gov/api/$imageType"
         val connection = URL(imageMetadataUrl).openConnection() as HttpsURLConnection
         if (connection.responseCode == HttpsURLConnection.HTTP_OK) {
             val data = connection.inputStream.bufferedReader().readText()
@@ -36,7 +36,7 @@ class RemoteWallpaperSource : RemoteMuzeiArtSource("RemoteWallpaperSource") {
                                 .format(SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
                                         .parse(metaData))
                         val image = imageData.getString("image")
-                        val imageUrl = "https://epic.gsfc.nasa.gov/archive/natural/$date/png/$image.png"
+                        val imageUrl = "https://epic.gsfc.nasa.gov/archive/$imageType/$date/png/$image.png"
                         publishArtwork(Artwork.Builder()
                                 .title("NASA EPIC Daily")
                                 .byline("Captured at " + metaData)
@@ -49,7 +49,7 @@ class RemoteWallpaperSource : RemoteMuzeiArtSource("RemoteWallpaperSource") {
             } else throw RetryException()
         } else throw RetryException()
         connection.disconnect()
-        val rotateTime = sharedPreferences.getInt(SettingsActivity.REFRESH_TIME, 1)
+        val rotateTime = sharedPreferences.getInt(SettingsActivity.REFRESH_TIME, SettingsActivity.DEFAULT_REFRESH_TIME)
         if (rotateTime > 0) scheduleUpdate(System.currentTimeMillis() + rotateTime)
     }
 }

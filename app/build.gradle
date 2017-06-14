@@ -2,20 +2,16 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.3"
+    compileSdkVersion 26
+    buildToolsVersion "26.0.0-rc2"
     defaultConfig {
         applicationId "com.biryanistudio.nasaepicdailyformuzei"
         minSdkVersion 19
-        targetSdkVersion 25
-        versionCode 3
-        versionName "0.7"
+        targetSdkVersion 26
+        versionCode 4
+        versionName "1.0"
     }
     buildTypes {
-        debug {
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -28,9 +24,12 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     compile "org.jetbrains.anko:anko-sdk25:$anko_version"
     compile "org.jetbrains.anko:anko-appcompat-v7:$anko_version"
-    compile "com.android.support:appcompat-v7:25.3.1"
+    compile "com.android.support:appcompat-v7:26.0.0-beta2"
     compile "com.google.android.apps.muzei:muzei-api:2.0"
 }
 repositories {
     mavenCentral()
+    maven {
+        url 'https://maven.google.com'
+    }
 }
